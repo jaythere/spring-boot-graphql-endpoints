@@ -82,6 +82,12 @@ we could also use @RestController in place of controller and response body
 
 @GetMapping
 	to serve as get request
+	
+Spring Boot internally uses converters to convert Java Object into JSON.. can see in `/student` get api's
+
+MappingJackson2HttpMessageConverter
+
+
 
 
 
