@@ -46,11 +46,44 @@ spring.factories - contains all the autoconfiguration classes
 @SpringBootApplication
 	@SpringBootConfiguration
 		@Configuration - Java, !(Annotation, XML) based configuration - can define beans
-	@EnableAutoConfiguration
-	@ComponentScan
+	@EnableAutoConfiguration - enable auto configuration
+	@ComponentScan - scan base package and sub package
 	
 	
 @Component - Class becomes spring component (@ComponentScan will scan this)
+
+
+Execution starts from main right ?
+main method internally call run method (static method) - internally create object of spring boot app (ConfigurableApplicationContext)
+
+	- Run (main method internally call to run method)
+	- Start Stop Watch (Start)
+	- Create BootstrapContext
+	- arg get passed to getRunListeners - Application Runner and Command Line Runner
+	- Prepare Environment - based on application.properties file
+	- Print Banner
+	- Create Application Context (run method create)
+	- webApplicationType (Servlet in case of spring web)
+	- AnnotationConfigServletWebServerApplicationContext created
+	- refresh Context
+	- Trigger Runners
+	- Return Context (IOC Container )
+	
+Spring Boot Application automatically start/create applicationContext
+
+application level configuration comes under application.properties file
+
+@Controller
+	to create controller
+@ResponseBody
+	to handle json data - return
+
+we could also use @RestController in place of controller and response body
+
+@GetMapping
+	to serve as get request
+
+
 
 
 
